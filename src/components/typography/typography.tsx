@@ -1,4 +1,4 @@
-import 'inter-ui/inter.css';
+// import 'inter-ui/inter.css';
 import React, { FC, HTMLAttributes } from 'react';
 import '../../tailwind.css';
 

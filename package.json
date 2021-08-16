@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1-1",
+  "version": "0.0.1-2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -51,13 +51,11 @@
     "tailwindcss",
     "storybook"
   ],
-  "author": {
-    "name": "Jonas Schultheiss",
-    "email": "jonas.schultheiss@pr1sm.gg",
-    "url": "https://jonasschultheiss.dev"
-  },
+  "author": "Jonas Schultheiss <jonas.schultheiss@pr1sm.gg> (https://jonasschultheiss.dev)",
   "homepage": "https://github.com/prsm/refracted",
-  "bugs": "https://github.com/prsm/refracted/issues",
+  "bugs": {
+    "url": "https://github.com/prsm/refracted/issues"
+  },
   "private": false,
   "module": "dist/refracted.esm.js",
   "size-limit": [
@@ -104,7 +102,9 @@
   "resolutions": {
     "eslint": "7.17.0"
   },
-  "dependencies": {
-    "inter-ui": "^3.19.3"
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prsm/refracted.git"
   }
 }
