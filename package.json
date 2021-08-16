@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "NODE_ENV=production tsdx build",
+    "build": "cross-env NODE_ENV=production tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
@@ -86,6 +86,7 @@
     "@types/styled-components": "^5.1.12",
     "autoprefixer": "^10.3.1",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "husky": "^7.0.1",
     "identity-obj-proxy": "^3.0.0",
     "postcss": "^8.3.6",
