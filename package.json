@@ -8,7 +8,8 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14.0.0 <15.0.0",
+    "yarn": "^1.22.11"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -42,7 +43,22 @@
     "trailingComma": "es5"
   },
   "name": "refracted",
-  "author": "jonasschultheiss",
+  "description": "The React UI library for PR1SM",
+  "keywords": [
+    "react",
+    "ui",
+    "framer-motion",
+    "tailwindcss",
+    "storybook"
+  ],
+  "author": {
+    "name": "Jonas Schultheiss",
+    "email": "jonasschultheiss@pr1sm.gg",
+    "url": "https://jonasschultheiss.dev"
+  },
+  "homepage": "https://github.com/prsm/refracted",
+  "bugs": "https://github.com/prsm/refracted/issues",
+  "private": false,
   "module": "dist/refracted.esm.js",
   "size-limit": [
     {
