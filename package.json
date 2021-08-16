@@ -42,7 +42,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "refracted",
+  "name": "@pr1sm/refracted",
   "description": "The React UI library for PR1SM",
   "keywords": [
     "react",
