@@ -17,11 +17,12 @@ export enum TypographyType {
   Button = 'button',
 }
 
-export interface Props extends HTMLAttributes<HTMLSpanElement> {
+export interface Properties extends HTMLAttributes<HTMLSpanElement> {
   type: TypographyType;
   text: string;
 }
 
-export const Typography: FC<Props> = ({ type, text }) => {
+export const Typography: FC<Properties> = (properties) => {
+  const { type, text } = properties;
   return <span className={`${type} text-brand-black`}>{text}</span>;
 };
