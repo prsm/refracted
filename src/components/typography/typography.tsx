@@ -2,27 +2,26 @@
 import React, { FC, HTMLAttributes } from 'react';
 import '../../tailwind.css';
 
-export enum TypographyType {
-  H1 = 'h1',
-  H2 = 'h2',
-  H3 = 'h3',
-  H4 = 'h4',
-  H5 = 'h5',
-  H6 = 'h6',
-  Pretitle = 'pretitle',
-  Subtitle = 'subtitle',
-  Strong = 'strong',
-  Em = 'em',
-  Body = 'body',
-  Button = 'button',
-}
+type TypographyVariant =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'pretitle'
+  | 'subtitle'
+  | 'strong'
+  | 'em'
+  | 'body'
+  | 'button';
 
 export interface Properties extends HTMLAttributes<HTMLSpanElement> {
-  type: TypographyType;
+  variant: TypographyVariant;
   text: string;
 }
 
 export const Typography: FC<Properties> = (properties) => {
-  const { type, text } = properties;
-  return <span className={`${type} text-brand-black`}>{text}</span>;
+  const { variant, text } = properties;
+  return <span className={`${variant ? variant : 'h1'} text-brand-black`}>{text}</span>;
 };
