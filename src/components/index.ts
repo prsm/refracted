@@ -1,3 +1,6 @@
-import Typography from './typography';
+import data from './data';
+import inputs from './inputs';
 
-export default Typography;
+const components = { data, inputs };
+
+export default components;

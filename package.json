@@ -129,7 +129,10 @@
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@heroicons/react": "^1.0.4",
+    "formik": "^2.2.9"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prsm/refracted.git"
