@@ -1,13 +1,30 @@
 // import 'inter-ui/inter.css';
-import { LockClosedIcon } from '@heroicons/react/solid';
+import {
+  AtSymbolIcon,
+  BanIcon,
+  CalculatorIcon,
+  CheckIcon,
+  LinkIcon,
+  LockClosedIcon,
+  PencilIcon,
+  PhoneIcon,
+  SearchIcon,
+  XIcon,
+} from '@heroicons/react/solid';
+import { motion } from 'framer-motion';
 import React, { FC, HTMLAttributes } from 'react';
 import '../../../tailwind.css';
+import Spinner from '../../feedback/spinner';
 
-type InputVariant = 'text' | 'password' | 'number' | 'email' | 'test' | 'url' | 'search';
+type InputVariant = 'text' | 'password' | 'number' | 'email' | 'tel' | 'url' | 'search';
+type InputStatus = 'valid' | 'invalid' | undefined;
 
 export interface Properties extends HTMLAttributes<HTMLInputElement> {
   variant: InputVariant;
   id: string;
+  name: string;
+  indicateLoading: boolean;
+  status: InputStatus;
   required: boolean;
   disabled: boolean;
   placeholder: string;
@@ -16,25 +33,81 @@ export interface Properties extends HTMLAttributes<HTMLInputElement> {
 }
 
 export const TextField: FC<Properties> = (properties) => {
-  const { variant, id, required, disabled, placeholder, value, onChanged } = properties;
+  const { variant, id, name, status, indicateLoading, required, disabled, placeholder, value, onChanged } = properties;
+
+  const classFromStatus = (): string | void => {
+    if (status === 'valid' && !disabled) {
+      return 'text-ui-green';
+    } else if (status === 'invalid' && !disabled) {
+      return 'text-ui-red';
+    }
+  };
+
+  let statusIcon;
+  if (status === 'valid') {
+    statusIcon = <CheckIcon />;
+  } else if (status === 'invalid') {
+    statusIcon = <XIcon />;
+  }
+
+  if (disabled) {
+    statusIcon = <BanIcon />;
+  }
+
+  let variantIcon;
+  switch (variant) {
+    case 'text':
+      variantIcon = <PencilIcon />;
+      break;
+    case 'password':
+      variantIcon = <LockClosedIcon />;
+      break;
+    case 'number':
+      variantIcon = <CalculatorIcon />;
+      break;
+    case 'email':
+      variantIcon = <AtSymbolIcon />;
+      break;
+    case 'tel':
+      variantIcon = <PhoneIcon />;
+      break;
+    case 'url':
+      variantIcon = <LinkIcon />;
+      break;
+    case 'search':
+      variantIcon = <SearchIcon />;
+      break;
+    default:
+      variantIcon = <PencilIcon />;
+      break;
+  }
+
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
 
   return (
-    <div className="flex relative text-gray-500 focus-within:text-brand-black dark:focus-within:text-brand-white transform duration-200 flex-wrap items-stretch mb-2 w-full p-1">
-      <span className="absolute focus:text-pink-600 z-10 justify-center items-center ml-2 py-2 w-4 h-4 text-base font-normal leading-snug text-center bg-transparent rounded">
-        <LockClosedIcon />
-      </span>
+    <motion.div initial="hidden" animate="visible" variants={variants} className="textfield">
+      {indicateLoading ? (
+        <div className="ml-2 textfield-icon">
+          <Spinner variant="current" />
+        </div>
+      ) : (
+        <span className="ml-2 textfield-icon">{variantIcon}</span>
+      )}
       <input
-        {...properties}
         onChange={(event) => onChanged(event.target.value)}
-        className={` relative p-1 border transition duration-200 bg-brand-white dark:bg-brand-black border-gray-500 focus:border-brand-black dark:focus:border-brand-white focus:outline-none text-brand-black dark:text-brand-white rounded w-full pl-8 body`}
+        className={`textfield-input body p-1 ${status ? 'px-7' : 'pl-7'}`}
         placeholder={placeholder}
         required={required}
         id={id}
-        name={id}
+        name={name}
         disabled={disabled}
         type={variant}
         value={value}
       />
-    </div>
+      {statusIcon && <span className={`mr-3 right-0 textfield-icon ${classFromStatus()}`}>{statusIcon}</span>}
+    </motion.div>
   );
 };
