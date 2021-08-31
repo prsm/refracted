@@ -75,11 +75,11 @@
   "size-limit": [
     {
       "path": "dist/refracted.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     },
     {
       "path": "dist/refracted.esm.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     }
   ],
   "devDependencies": {
