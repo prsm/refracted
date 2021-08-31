@@ -11,7 +11,7 @@ const meta: Meta = {
   },
   decorators: [
     (Story: Story): StoryFnReactReturnType => (
-      <div className="p-4 max-w-xs text-brand-black bg-brand-white dark:bg-brand-black">
+      <div className="p-4 max-w-xs text-purple-500 bg-brand-white dark:bg-brand-black">
         <Story />
       </div>
     ),
