@@ -1,3 +1,7 @@
-import Typography from './typography';
+import data from './data';
+import feedback from './feedback';
+import inputs from './inputs';
 
-export default Typography;
+const components = { data, feedback, inputs };
+
+export default components;

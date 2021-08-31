@@ -1,10 +1,21 @@
 import { Meta, Story } from '@storybook/react';
+import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import React from 'react';
 import { Properties, Typography } from './typography';
 
 const meta: Meta = {
-  title: 'Display/Typography',
+  title: 'Data/Typography',
   component: Typography,
+  parameters: {
+    componentSubtitle: 'Displays prestyled text',
+  },
+  decorators: [
+    (Story: Story): StoryFnReactReturnType => (
+      <div className="p-4 bg-brand-white dark:bg-brand-black">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;

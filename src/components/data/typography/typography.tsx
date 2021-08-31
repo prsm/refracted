@@ -1,6 +1,6 @@
 // import 'inter-ui/inter.css';
 import React, { FC, HTMLAttributes } from 'react';
-import '../../tailwind.css';
+import '../../../tailwind.css';
 
 type TypographyVariant =
   | 'h1'
@@ -21,7 +21,18 @@ export interface Properties extends HTMLAttributes<HTMLSpanElement> {
   text: string;
 }
 
+/**
+  - Use typography to visualize text
+**/
 export const Typography: FC<Properties> = (properties) => {
-  const { variant, text } = properties;
-  return <span className={`${variant ? variant : 'h1'} text-brand-black`}>{text}</span>;
+  const { variant, text, className } = properties;
+  return (
+    <span
+      className={` text-brand-black dark:text-brand-white ${variant ? variant : 'h1'}${
+        className ? ' ' + className : ''
+      }`}
+    >
+      {text}
+    </span>
+  );
 };

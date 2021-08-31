@@ -15,6 +15,7 @@
     "start": "tsdx watch",
     "build": "cross-env NODE_ENV=production tsdx build",
     "test": "tsdx test --passWithNoTests",
+    "test:watch": "tsdx test --watch --passWithNoTests",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet",
     "format": "prettier --write '*/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "prepare": "tsdx build",
@@ -74,22 +75,26 @@
   "size-limit": [
     {
       "path": "dist/refracted.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     },
     {
       "path": "dist/refracted.esm.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     }
   ],
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@size-limit/preset-small-lib": "^5.0.2",
+    "@storybook/addon-a11y": "^6.3.7",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-links": "^6.3.6",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/addons": "^6.3.6",
+    "@storybook/addons": "^6.3.7",
     "@storybook/react": "^6.3.6",
+    "@storybook/theming": "^6.3.7",
+    "@svgr/rollup": "^5.5.0",
+    "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/react": "^17.0.15",
@@ -99,6 +104,7 @@
     "@typescript-eslint/parser": "^4.29.2",
     "autoprefixer": "^10.3.1",
     "babel-loader": "^8.2.2",
+    "chromatic": "^5.9.2",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.0",
@@ -123,13 +129,18 @@
     "react-is": "^17.0.2",
     "rollup-plugin-postcss": "^4.0.1",
     "size-limit": "^5.0.2",
+    "storybook-formik": "^2.1.6",
     "storybook-tailwind-dark-mode": "^1.0.9",
     "tailwindcss": "^2.2.7",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@heroicons/react": "^1.0.4",
+    "formik": "^2.2.9",
+    "framer-motion": "^4.1.17"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prsm/refracted.git"

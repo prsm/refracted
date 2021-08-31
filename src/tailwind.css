@@ -84,3 +84,22 @@
   line-height: 1;
   letter-spacing: 0.5px;
 }
+
+.textfield-icon {
+  @apply absolute z-10 justify-center items-center py-2 w-4 h-4 text-base font-normal leading-snug text-center bg-transparent rounded;
+}
+
+.textfield {
+  @apply flex relative flex-wrap items-stretch p-1 mb-2 w-full text-gray-500 focus-within:text-brand-black dark:focus-within:text-brand-white duration-200 transform;
+}
+
+.textfield-input {
+  @apply relative border transition duration-200 bg-brand-white dark:bg-brand-black border-gray-500 focus:border-brand-black dark:focus:border-brand-white focus:outline-none text-brand-black dark:text-brand-white rounded w-full;
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
