@@ -23,19 +23,23 @@ export interface Properties extends HTMLAttributes<HTMLInputElement> {
   variant: InputVariant;
   id: string;
   name: string;
-  indicateLoading: boolean;
-  status: InputStatus;
-  required: boolean;
-  disabled: boolean;
-  placeholder: string;
-  value: string;
-  onChanged: (value: string) => void;
+  indicateLoading?: boolean;
+  status?: InputStatus;
+  required?: boolean;
+  disabled?: boolean;
+  placeholder?: string;
+  value?: string;
+  onChanged?: (value: string) => void;
 }
 
+/**
+  - Use a text field to get user input
+  - Display field state like disabled, valid, invalid and loading
+ **/
 export const TextField: FC<Properties> = (properties) => {
   const { variant, id, name, status, indicateLoading, required, disabled, placeholder, value, onChanged } = properties;
 
-  const classFromStatus = (): string | void => {
+  const textColorFromStatus = (): string | void => {
     if (status === 'valid' && !disabled) {
       return 'text-ui-green';
     } else if (status === 'invalid' && !disabled) {
@@ -45,7 +49,7 @@ export const TextField: FC<Properties> = (properties) => {
 
   let statusIcon;
   if (status === 'valid') {
-    statusIcon = <CheckIcon />;
+    statusIcon = <CheckIcon data-testid="valid-icon" />;
   } else if (status === 'invalid') {
     statusIcon = <XIcon />;
   }
@@ -94,10 +98,12 @@ export const TextField: FC<Properties> = (properties) => {
           <Spinner variant="current" />
         </div>
       ) : (
-        <span className="ml-2 textfield-icon">{variantIcon}</span>
+        <span data-testid="variant-icon" className="ml-2 textfield-icon">
+          {variantIcon}
+        </span>
       )}
       <input
-        onChange={(event) => onChanged(event.target.value)}
+        onChange={(event) => (onChanged ? onChanged(event.target.value) : undefined)}
         className={`textfield-input body p-1 ${status ? 'px-7' : 'pl-7'}`}
         placeholder={placeholder}
         required={required}
@@ -107,7 +113,11 @@ export const TextField: FC<Properties> = (properties) => {
         type={variant}
         value={value}
       />
-      {statusIcon && <span className={`mr-3 right-0 textfield-icon ${classFromStatus()}`}>{statusIcon}</span>}
+      {statusIcon && (
+        <span data-testid="status-icon" className={`mr-3 right-0 textfield-icon ${textColorFromStatus()}`}>
+          {statusIcon}
+        </span>
+      )}
     </motion.div>
   );
 };

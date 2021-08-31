@@ -9,6 +9,9 @@ export interface Properties extends HTMLAttributes<HTMLLabelElement> {
   required: boolean;
 }
 
+/**
+  - Use a input label to describe the associated input
+**/
 export const InputLabel: FC<Properties> = (properties) => {
   const { htmlFor, required, text } = properties;
 

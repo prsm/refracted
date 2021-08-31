@@ -6,6 +6,9 @@ import { InputLabel, Properties } from './inputLabel';
 const meta: Meta = {
   title: 'Inputs/Input Label',
   component: InputLabel,
+  parameters: {
+    componentSubtitle: 'Displays a string that describes an input',
+  },
   decorators: [
     (Story: Story): StoryFnReactReturnType => (
       <div className="p-4 bg-brand-white dark:bg-brand-black">

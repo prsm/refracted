@@ -7,6 +7,9 @@ const meta: Meta = {
   title: 'Inputs/Text Field',
   component: TextField,
   argTypes: { onChanged: { action: 'changed' } },
+  parameters: {
+    componentSubtitle: 'Displays a single text field',
+  },
   decorators: [
     (Story: Story): StoryFnReactReturnType => (
       <div className="p-4 bg-brand-white dark:bg-brand-black">

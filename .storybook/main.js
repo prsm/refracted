@@ -1,10 +1,11 @@
 module.exports = {
-  stories: ['./../src/components/**/*.stories.tsx'],
+  stories: ['./../src/components/**/*.stories.@(tsx|mdx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     'storybook-tailwind-dark-mode',
     'storybook-formik/register',
+    '@storybook/addon-a11y',
     {
       name: '@storybook/addon-postcss',
       options: {

@@ -21,6 +21,9 @@ export interface Properties extends HTMLAttributes<HTMLSpanElement> {
   text: string;
 }
 
+/**
+  - Use typography to visualize text
+**/
 export const Typography: FC<Properties> = (properties) => {
   const { variant, text, className } = properties;
   return (

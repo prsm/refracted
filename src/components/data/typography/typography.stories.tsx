@@ -6,6 +6,9 @@ import { Properties, Typography } from './typography';
 const meta: Meta = {
   title: 'Data/Typography',
   component: Typography,
+  parameters: {
+    componentSubtitle: 'Displays prestyled text',
+  },
   decorators: [
     (Story: Story): StoryFnReactReturnType => (
       <div className="p-4 bg-brand-white dark:bg-brand-black">
