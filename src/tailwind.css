@@ -94,7 +94,7 @@
 }
 
 .textfield-input {
-  @apply relative border transition duration-200 bg-brand-white dark:bg-brand-black border-gray-500 focus:border-brand-black dark:focus:border-brand-white focus:outline-none text-brand-black dark:text-brand-white rounded w-full;
+  @apply relative border transition duration-200 bg-brand-white dark:bg-brand-black border-pink-500 focus:border-brand-black dark:focus:border-brand-white focus:outline-none text-brand-black dark:text-brand-white rounded w-full;
 }
 
 input[type='search']::-webkit-search-decoration,
