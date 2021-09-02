@@ -1,3 +1,5 @@
-import Typography from './components';
+import components from './components';
 
-export { Typography };
+const refracted = { ...components };
+
+export default refracted;
