@@ -1,10 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import React from 'react';
-import { Properties, Typography } from './typography';
+import { Typography, TypographyProperties } from './typography';
 
 const meta: Meta = {
-  title: 'Data/Typography',
+  title: 'Design System/Data/Typography',
   component: Typography,
   parameters: {
     componentSubtitle: 'Displays prestyled text',
@@ -20,7 +20,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<Properties> = (arguments_) => <Typography {...arguments_} />;
+const Template: Story<TypographyProperties> = (arguments_) => <Typography {...arguments_} />;
 
 const text = 'There’s no place like home';
 

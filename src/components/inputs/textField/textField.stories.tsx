@@ -1,10 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import React from 'react';
-import { Properties, TextField } from './textfield';
+import withFormik from 'storybook-formik';
+import { TextField, TextFieldProperties } from './textfield';
 
 const meta: Meta = {
-  title: 'Inputs/Text Field',
+  title: 'Design System/Inputs/Text Field',
   component: TextField,
   argTypes: { onChanged: { action: 'changed' } },
   parameters: {
@@ -16,14 +17,14 @@ const meta: Meta = {
         <Story />
       </div>
     ),
+    withFormik,
   ],
 };
 
 export default meta;
 
-const Template: Story<Properties> = (arguments_) => <TextField {...arguments_} />;
+const Template: Story<TextFieldProperties> = (arguments_) => <TextField {...arguments_} />;
 
-const value = undefined;
 const placeholder = 'John Doe';
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
@@ -36,9 +37,7 @@ Text.args = {
   indicateLoading: false,
   required: false,
   disabled: false,
-  status: undefined,
   placeholder,
-  value,
 };
 
 export const Password = Template.bind({});
@@ -49,9 +48,6 @@ Password.args = {
   required: false,
   indicateLoading: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
 };
 
 export const Number = Template.bind({});
@@ -62,9 +58,7 @@ Number.args = {
   required: false,
   indicateLoading: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: '123',
 };
 
 export const EMail = Template.bind({});
@@ -75,9 +69,7 @@ EMail.args = {
   required: false,
   indicateLoading: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: 'example@domain.tld',
 };
 
 export const Telephone = Template.bind({});
@@ -88,9 +80,7 @@ Telephone.args = {
   required: false,
   indicateLoading: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: '0767777777',
 };
 
 export const URL = Template.bind({});
@@ -101,9 +91,7 @@ URL.args = {
   indicateLoading: false,
   required: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: 'https://example.com',
 };
 
 export const Search = Template.bind({});
@@ -114,9 +102,7 @@ Search.args = {
   indicateLoading: false,
   required: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: 'nudist beach near basel',
 };
 
 export const ValidInput = Template.bind({});
@@ -129,7 +115,6 @@ ValidInput.args = {
   disabled: false,
   status: 'valid',
   placeholder,
-  value,
 };
 
 export const InvalidInput = Template.bind({});
@@ -142,7 +127,6 @@ InvalidInput.args = {
   disabled: false,
   status: 'invalid',
   placeholder,
-  value,
 };
 
 export const Loading = Template.bind({});
@@ -153,9 +137,7 @@ Loading.args = {
   indicateLoading: true,
   required: false,
   disabled: false,
-  status: undefined,
   placeholder,
-  value,
 };
 
 export const Disabled = Template.bind({});
@@ -166,7 +148,5 @@ Disabled.args = {
   indicateLoading: false,
   required: false,
   disabled: true,
-  status: undefined,
   placeholder,
-  value,
 };

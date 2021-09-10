@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import React from 'react';
-import { InputLabel, Properties } from './inputLabel';
+import { FormControlLabel, FormControlLabelProperties } from './formControlLabel';
 
 const meta: Meta = {
-  title: 'Inputs/Input Label',
-  component: InputLabel,
+  title: 'Design System/Inputs/Input Label',
+  component: FormControlLabel,
   parameters: {
     componentSubtitle: 'Displays a string that describes an input',
   },
@@ -20,12 +20,12 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<Properties> = (arguments_) => <InputLabel {...arguments_} />;
+const Template: Story<FormControlLabelProperties> = (arguments_) => <FormControlLabel {...arguments_} />;
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
 export const Default = Template.bind({});
 Default.args = {
-  required: true,
+  required: false,
   text: 'Enter your name',
 };

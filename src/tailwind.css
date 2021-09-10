@@ -90,11 +90,11 @@
 }
 
 .textfield {
-  @apply flex relative flex-wrap items-stretch p-1 mb-2 w-full text-gray-500 focus-within:text-brand-black dark:focus-within:text-brand-white duration-200 transform;
+  @apply flex relative flex-wrap items-stretch mb-2 w-full text-gray-500 focus-within:text-brand-black dark:focus-within:text-brand-white duration-200 transform;
 }
 
 .textfield-input {
-  @apply relative border transition duration-200 bg-brand-white dark:bg-brand-black border-pink-500 focus:border-brand-black dark:focus:border-brand-white focus:outline-none text-brand-black dark:text-brand-white rounded w-full;
+  @apply relative border transition duration-200 bg-brand-white dark:bg-brand-black border-gray-500 focus:border-brand-black dark:focus:border-brand-white focus:outline-none text-brand-black dark:text-brand-white rounded w-full;
 }
 
 input[type='search']::-webkit-search-decoration,

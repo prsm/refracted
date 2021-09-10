@@ -11,7 +11,7 @@ import {
   SearchIcon,
   XIcon,
 } from '@heroicons/react/solid';
-import { motion } from 'framer-motion';
+import { useField } from 'formik';
 import React, { FC, HTMLAttributes } from 'react';
 import '../../../tailwind.css';
 import Spinner from '../../feedback/spinner';
@@ -19,7 +19,7 @@ import Spinner from '../../feedback/spinner';
 type InputVariant = 'text' | 'password' | 'number' | 'email' | 'tel' | 'url' | 'search';
 type InputStatus = 'valid' | 'invalid' | undefined;
 
-export interface Properties extends HTMLAttributes<HTMLInputElement> {
+export interface TextFieldProperties extends HTMLAttributes<HTMLInputElement> {
   variant: InputVariant;
   id: string;
   name: string;
@@ -28,29 +28,28 @@ export interface Properties extends HTMLAttributes<HTMLInputElement> {
   required?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  value?: string;
-  onChanged?: (value: string) => void;
 }
 
 /**
   - Use a text field to get user input
   - Display field state like disabled, valid, invalid and loading
  **/
-export const TextField: FC<Properties> = (properties) => {
-  const { variant, id, name, status, indicateLoading, required, disabled, placeholder, value, onChanged } = properties;
+export const TextField: FC<TextFieldProperties> = (properties) => {
+  const { variant, id, name, status, indicateLoading, required, disabled, placeholder } = properties;
+  const [field, meta] = useField(name);
 
   const textColorFromStatus = (): string | void => {
-    if (status === 'valid' && !disabled) {
+    if ((status === 'valid' && !disabled) || (!meta.error && !disabled)) {
       return 'text-ui-green';
-    } else if (status === 'invalid' && !disabled) {
+    } else if ((status === 'invalid' && !disabled) || (!!meta.error && !disabled)) {
       return 'text-ui-red';
     }
   };
 
   let statusIcon;
-  if (status === 'valid') {
+  if (status === 'valid' || (meta.touched && !meta.error)) {
     statusIcon = <CheckIcon data-testid="valid-icon" />;
-  } else if (status === 'invalid') {
+  } else if (status === 'invalid' || (meta.touched && !!meta.error)) {
     statusIcon = <XIcon />;
   }
 
@@ -86,16 +85,11 @@ export const TextField: FC<Properties> = (properties) => {
       break;
   }
 
-  const variants = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
-
   return (
-    <motion.div initial="hidden" animate="visible" variants={variants} className="textfield">
+    <div className="textfield">
       {indicateLoading ? (
         <div className="ml-2 textfield-icon">
-          <Spinner variant="current" />
+          <Spinner color="current" />
         </div>
       ) : (
         <span data-testid="variant-icon" className="ml-2 textfield-icon">
@@ -103,21 +97,19 @@ export const TextField: FC<Properties> = (properties) => {
         </span>
       )}
       <input
-        onChange={(event) => (onChanged ? onChanged(event.target.value) : undefined)}
         className={`textfield-input body p-1 ${status ? 'px-7' : 'pl-7'}`}
         placeholder={placeholder}
         required={required}
         id={id}
-        name={name}
         disabled={disabled}
         type={variant}
-        value={value}
+        {...field}
       />
       {statusIcon && (
-        <span data-testid="status-icon" className={`mr-3 right-0 textfield-icon ${textColorFromStatus()}`}>
+        <span data-testid="status-icon" className={`mr-2 right-0 textfield-icon ${textColorFromStatus()}`}>
           {statusIcon}
         </span>
       )}
-    </motion.div>
+    </div>
   );
 };

@@ -5,7 +5,7 @@ import { Red } from './spinner.stories';
 
 describe('Spinner', () => {
   it('should render the component without crashing', () => {
-    render(<Red variant="red" />);
+    render(<Red color="red" />);
     const spinner = screen.getByTitle('spinner');
     expect(spinner).toBeInTheDocument();
   });

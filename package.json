@@ -48,7 +48,10 @@
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    }
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(storybook-formik)/)"
+    ]
   },
   "prettier": {
     "printWidth": 120,
@@ -84,19 +87,22 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
     "@size-limit/preset-small-lib": "^5.0.2",
-    "@storybook/addon-a11y": "^6.3.7",
-    "@storybook/addon-essentials": "^6.3.6",
+    "@storybook/addon-a11y": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
     "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-links": "^6.3.6",
+    "@storybook/addon-links": "^6.3.8",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/addons": "^6.3.7",
-    "@storybook/react": "^6.3.6",
-    "@storybook/theming": "^6.3.7",
+    "@storybook/addons": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "@storybook/theming": "^6.3.8",
     "@svgr/rollup": "^5.5.0",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
+    "@types/prop-types": "^15.7.4",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
     "@types/styled-components": "^5.1.12",
@@ -104,6 +110,7 @@
     "@typescript-eslint/parser": "^4.29.2",
     "autoprefixer": "^10.3.1",
     "babel-loader": "^8.2.2",
+    "babel-plugin-typescript-to-proptypes": "^1.4.2",
     "chromatic": "^5.9.2",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
@@ -130,7 +137,7 @@
     "rollup-plugin-postcss": "^4.0.1",
     "size-limit": "^5.0.2",
     "storybook-formik": "^2.1.6",
-    "storybook-tailwind-dark-mode": "^1.0.9",
+    "storybook-tailwind-dark-mode": "^1.0.11",
     "tailwindcss": "^2.2.7",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
@@ -139,7 +146,8 @@
   "dependencies": {
     "@heroicons/react": "^1.0.4",
     "formik": "^2.2.9",
-    "framer-motion": "^4.1.17"
+    "framer-motion": "^4.1.17",
+    "yup": "^0.32.9"
   },
   "repository": {
     "type": "git",
