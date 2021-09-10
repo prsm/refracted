@@ -18,8 +18,15 @@ export const FormControlLabel: FC<FormControlLabelProperties> = (properties) => 
 
   return (
     <label htmlFor={htmlFor} className="pb-1">
-      <Typography variant="pretitle" text={text} />
-      {required && <Typography className="text-brand-main-500 dark:text-brand-main-500" variant="pretitle" text="*" />}
+      <Typography variant="pretitle" text={text} component="span" />
+      {required && (
+        <Typography
+          className="text-brand-main-500 dark:text-brand-main-500"
+          component="span"
+          variant="pretitle"
+          text="*"
+        />
+      )}
     </label>
   );
 };

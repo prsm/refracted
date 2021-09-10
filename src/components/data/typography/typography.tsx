@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import React, { FC, HTMLAttributes } from 'react';
 import '../../../tailwind.css';
+import getUIColor, { UIColor } from '../../../utils/getUiColor';
 
 type TypographyVariant =
   | 'h1'
@@ -17,24 +18,41 @@ type TypographyVariant =
   | 'body'
   | 'button';
 
+type TypographyElement =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'span'
+  | 'em'
+  | 'strong'
+  | 'p'
+  | 'div'
+  | 'figcaption'
+  | 'li'
+  | 'pre';
+
 export interface TypographyProperties extends HTMLAttributes<HTMLSpanElement> {
   variant: TypographyVariant;
   text: string;
+  color?: UIColor;
+  component: TypographyElement;
+  className?: string;
 }
 
 /**
   - Use typography to visualize text
 **/
 export const Typography: FC<TypographyProperties> = (properties) => {
-  const { variant = 'h1', text, className } = properties;
+  const { variant = 'h1', component = 'span', color = 'black', text, className } = properties;
+  const TextWrapper = component;
+
   return (
-    <span
-      className={` text-brand-black dark:text-brand-white ${variant ? variant : 'h1'}${
-        className ? ' ' + className : ''
-      }`}
-    >
+    <TextWrapper className={`${getUIColor(color)} ${variant ? variant : 'h1'}${className ? ' ' + className : ''}`}>
       {text}
-    </span>
+    </TextWrapper>
   );
 };
 

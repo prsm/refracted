@@ -100,8 +100,8 @@ Username.parameters = {
 
 export const Password: Story<FormControlTemplateProperties> = FormControlTemplate.bind({});
 Password.args = {
-  label: { ...DefaultLabel.args, htmlFor: 'password-input', text: 'Password' },
-  textField: { ...Text.args, id: 'password-input', name: 'password', variant: 'password' },
+  label: { ...DefaultLabel.args, htmlFor: 'password-input', text: 'Password', required: true },
+  textField: { ...Text.args, id: 'password-input', name: 'password', variant: 'password', required: true },
 };
 
 Password.parameters = {

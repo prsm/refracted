@@ -17,9 +17,9 @@ const getUIColor = (color: UIColor): string => {
     case 'red':
       return 'text-ui-red';
     case 'white':
-      return 'text-brand-white';
+      return 'text-brand-white dark:text-brand-white';
     case 'black':
-      return 'text-brand-black';
+      return 'text-brand-black dark:text-brand-white';
 
     default:
       return 'fill-current';
