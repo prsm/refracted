@@ -1,19 +1,19 @@
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Formik } from 'formik';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { Wrapper } from '../../../utils/formikWrapper';
 import { Email, FormControlTemplateProperties } from './formControl.stories';
 
 describe('Form Control', () => {
-  const defaultArgs: FormControlTemplateProperties = Email.args as FormControlTemplateProperties;
+  const defaultArguments: FormControlTemplateProperties = Email.args as FormControlTemplateProperties;
 
   it('should render and be able to take input', async () => {
     const { getByDisplayValue } = render(
-      <Wrapper {...Email.parameters?.formik}>
-        <Email {...defaultArgs} />
-      </Wrapper>
+      <Formik {...Email.parameters?.formik}>
+        <Email {...defaultArguments} />
+      </Formik>
     );
 
     act(() => {
@@ -27,9 +27,9 @@ describe('Form Control', () => {
 
   it('should render a FormControlLabel', () => {
     const { getByText } = render(
-      <Wrapper {...Email.parameters?.formik}>
-        <Email {...defaultArgs} />
-      </Wrapper>
+      <Formik {...Email.parameters?.formik}>
+        <Email {...defaultArguments} />
+      </Formik>
     );
 
     const label = getByText('Email');
@@ -40,9 +40,9 @@ describe('Form Control', () => {
 
   it('should visually inform about bad validation', async () => {
     const { findByText } = render(
-      <Wrapper {...Email.parameters?.formik}>
-        <Email {...defaultArgs} />
-      </Wrapper>
+      <Formik {...Email.parameters?.formik}>
+        <Email {...defaultArguments} />
+      </Formik>
     );
     act(() => {
       fireEvent.blur(screen.getByRole('textbox'));

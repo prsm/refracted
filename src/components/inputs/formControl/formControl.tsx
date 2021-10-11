@@ -33,7 +33,7 @@ export const FormControl: FC<FormControlProperties> = ({ children, name }) => {
             exit={{ opacity: 0 }}>
             <Typography variant="pretitle" component="span" color="black" text={meta.error} />
           </motion.div>
-        ) : null}
+        ) : undefined}
       </AnimatePresence>
     </div>
   );
