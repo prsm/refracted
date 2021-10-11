@@ -48,13 +48,13 @@ export const TextField: FC<TextFieldProperties> = (properties) => {
 
   let statusIcon;
   if (status === 'valid' || (meta.touched && !meta.error)) {
-    statusIcon = <CheckIcon data-testid="valid-icon" />;
+    statusIcon = <CheckIcon data-testid={'valid-icon'} />;
   } else if (status === 'invalid' || (meta.touched && !!meta.error)) {
     statusIcon = <XIcon />;
   }
 
   if (disabled) {
-    statusIcon = <BanIcon />;
+    statusIcon = <BanIcon data-testid={'disabled-icon'} />;
   }
 
   let variantIcon;

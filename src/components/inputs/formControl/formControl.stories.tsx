@@ -6,44 +6,8 @@ import * as yup from 'yup';
 import { FormControlLabel, FormControlLabelProperties } from '../formControlLabel/formControlLabel';
 import { Default as DefaultLabel } from '../formControlLabel/formControlLabel.stories';
 import { TextField, TextFieldProperties } from '../textField/textfield';
-import { Text } from '../textField/textField.stories';
+import { EMail, Text } from '../textField/textField.stories';
 import { FormControl, FormControlProperties } from './formControl';
-
-// export interface WrapperProperties {
-//   children: ReactChild | ReactChildren;
-// }
-
-// const Wrapper: FC<WrapperProperties> = (properties) => {
-//   const { children } = properties;
-//   const formik = useFormik({
-//     initialValues: {
-//       username: '',
-//     },
-//     onSubmit: async (values) => {
-//       alert(JSON.stringify(values, undefined, 2));
-//     },
-//     validationSchema: yup.object({
-//       username: yup
-//         .string()
-//         .min(8, 'Must be at least 8 characters')
-//         .max(20, 'Must be less  than 20 characters')
-//         .required('Username is required')
-//         .matches(/^[\dA-Za-z]+$/, 'Cannot contain special characters or spaces'),
-//     }),
-//   });
-
-//   return (
-//     <FormikProvider value={formik}>
-//       <Form>
-//         {children}
-//         <div>
-//           <button type="submit">Submit</button>
-//           <button type="reset">Reset</button>
-//         </div>
-//       </Form>
-//     </FormikProvider>
-//   );
-// };
 
 const meta: Meta = {
   title: 'Design System/Inputs/Form Control',
@@ -65,31 +29,28 @@ const meta: Meta = {
 
 export default meta;
 
-interface FormControlTemplateProperties extends FormControlProperties {
+export interface FormControlTemplateProperties extends FormControlProperties {
   label: FormControlLabelProperties;
   textField: TextFieldProperties;
 }
 
-const FormControlTemplate: Story<FormControlTemplateProperties> = (properties) => {
-  const { label, textField, ...formControlProperties } = properties;
+const FormControlTemplate: Story<FormControlTemplateProperties> = ({ label, textField, name }) => {
   return (
-    <FormControl {...formControlProperties}>
+    <FormControl name={name}>
       <FormControlLabel {...label} />
       <TextField {...textField} />
     </FormControl>
   );
 };
 
-// const Template: Story<Properties> = (arguments_) => <FormControl {...arguments_} />;
-
-// By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
-// https://storybook.js.org/docs/react/workflows/unit-testing
 export const Username: Story<FormControlTemplateProperties> = FormControlTemplate.bind({});
 
 Username.args = {
+  name: 'username',
   label: { ...DefaultLabel.args, htmlFor: 'username-input', text: 'Enter your Username' },
   textField: { ...Text.args, id: 'username-input', name: 'username', variant: 'text' },
 };
+
 Username.parameters = {
   formik: {
     initialValues: {
@@ -99,7 +60,9 @@ Username.parameters = {
 };
 
 export const Password: Story<FormControlTemplateProperties> = FormControlTemplate.bind({});
+
 Password.args = {
+  name: 'password',
   label: { ...DefaultLabel.args, htmlFor: 'password-input', text: 'Password', required: true },
   textField: { ...Text.args, id: 'password-input', name: 'password', variant: 'password', required: true },
 };
@@ -119,6 +82,36 @@ Password.parameters = {
           /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[A-Za-z]).+$/,
           'Must contain both uppercase and lowercase characters, aswell as a special character'
         ),
+    }),
+  },
+};
+
+export const Email: Story<FormControlTemplateProperties> = FormControlTemplate.bind({});
+
+Email.args = {
+  name: 'email',
+  label: { ...DefaultLabel.args, htmlFor: 'email-input', text: 'Email', required: true },
+  textField: {
+    ...EMail.args,
+    id: 'email-input',
+    name: 'email',
+    variant: 'email',
+    required: true,
+    placeholder: 'Enter your email address',
+  },
+};
+
+Email.parameters = {
+  formik: {
+    initialValues: {
+      email: '',
+    },
+    validationSchema: yup.object({
+      email: yup
+        .string()
+        .email('Must be a valid email')
+        .max(255, 'Must be less than 255 characters')
+        .required('Email is required'),
     }),
   },
 };

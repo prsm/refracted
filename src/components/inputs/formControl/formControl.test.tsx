@@ -1,39 +1,55 @@
-// import '@testing-library/jest-dom/extend-expect';
-// import { render } from '@testing-library/react';
-// import * as React from 'react';
-// import { Text } from './formControl.stories';
+import '@testing-library/jest-dom/extend-expect';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { Wrapper } from '../../../utils/formikWrapper';
+import { Email, FormControlTemplateProperties } from './formControl.stories';
 
-// describe('TextField', () => {
-//   const text = 'Inside test case';
-//   it('should render the component without crashing', () => {
-//     const { getByDisplayValue } = render(<Text variant="text" value={text} id="default" name="default" />);
-//     expect(getByDisplayValue(text)).toBeInTheDocument();
-//   });
+describe('Form Control', () => {
+  const defaultArgs: FormControlTemplateProperties = Email.args as FormControlTemplateProperties;
 
-//   it('should display a type icon when not loading', () => {
-//     const { getByTestId } = render(<Text variant="text" value={text} id="default" name="default" />);
-//     expect(getByTestId('variant-icon')).toBeInTheDocument();
-//   });
+  it('should render and be able to take input', async () => {
+    const { getByDisplayValue } = render(
+      <Wrapper {...Email.parameters?.formik}>
+        <Email {...defaultArgs} />
+      </Wrapper>
+    );
 
-//   it('should display a spinner when loading', () => {
-//     const { getByTitle } = render(<Text variant="text" value={text} id="default" name="default" indicateLoading />);
-//     expect(getByTitle('spinner')).toBeInTheDocument();
-//   });
+    act(() => {
+      userEvent.type(screen.getByRole('textbox'), 'm');
+    });
 
-//   it('should not display a status icon, when none is needed ', () => {
-//     const { queryByTestId } = render(<Text variant="text" value={text} id="default" name="default" />);
-//     expect(queryByTestId('status-icon')).toBeNull();
-//   });
+    await waitFor(() => {
+      expect(getByDisplayValue('m')).toBeInTheDocument();
+    });
+  });
 
-//   it('should display a status icon', () => {
-//     const { getByTestId } = render(<Text variant="text" value={text} id="default" name="default" status="valid" />);
-//     expect(getByTestId('status-icon')).toBeInTheDocument();
-//   });
+  it('should render a FormControlLabel', () => {
+    const { getByText } = render(
+      <Wrapper {...Email.parameters?.formik}>
+        <Email {...defaultArgs} />
+      </Wrapper>
+    );
 
-//   it('should display a disabled icon, even if the input is valid', () => {
-//     const { queryByTestId } = render(
-//       <Text variant="text" value={text} id="default" name="default" status="valid" disabled />
-//     );
-//     expect(queryByTestId('valid-icon')).toBeNull();
-//   });
-// });
+    const label = getByText('Email');
+
+    expect(label).toBeInTheDocument();
+    expect(label.nodeName).toBe('SPAN');
+  });
+
+  it('should visually inform about bad validation', async () => {
+    const { findByText } = render(
+      <Wrapper {...Email.parameters?.formik}>
+        <Email {...defaultArgs} />
+      </Wrapper>
+    );
+    act(() => {
+      fireEvent.blur(screen.getByRole('textbox'));
+    });
+
+    const errorMessage = await findByText('Email is required');
+
+    expect(errorMessage).toBeInTheDocument();
+  });
+});
