@@ -1,10 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import React from 'react';
-import { Properties, TextField } from './textfield';
+import withFormik from 'storybook-formik';
+import { TextField, TextFieldProperties } from './textfield';
 
 const meta: Meta = {
-  title: 'Inputs/Text Field',
+  title: 'Design System/Inputs/Text Field',
   component: TextField,
   argTypes: { onChanged: { action: 'changed' } },
   parameters: {
@@ -16,97 +17,139 @@ const meta: Meta = {
         <Story />
       </div>
     ),
+    withFormik,
   ],
 };
 
 export default meta;
 
-const Template: Story<Properties> = (arguments_) => <TextField {...arguments_} />;
+const Template: Story<TextFieldProperties> = (arguments_) => <TextField {...arguments_} />;
 
-const value = undefined;
 const placeholder = 'John Doe';
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
 export const Text = Template.bind({});
+
 Text.args = {
   variant: 'text',
-  id: 'default',
-  name: 'default',
+  id: 'text',
+  name: 'text',
   indicateLoading: false,
   required: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: 'type something',
+};
+
+Text.parameters = {
+  formik: {
+    initialValues: {
+      text: '',
+    },
+  },
 };
 
 export const Password = Template.bind({});
+
 Password.args = {
   variant: 'password',
-  id: 'default',
-  name: 'default',
+  id: 'password',
+  name: 'password',
   required: false,
   indicateLoading: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+};
+
+Password.parameters = {
+  formik: {
+    initialValues: {
+      password: '',
+    },
+  },
 };
 
 export const Number = Template.bind({});
+
 Number.args = {
   variant: 'number',
-  id: 'default',
-  name: 'default',
+  id: 'number',
+  name: 'number',
   required: false,
   indicateLoading: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: '123',
+};
+
+Number.parameters = {
+  formik: {
+    initialValues: {
+      number: '',
+    },
+  },
 };
 
 export const EMail = Template.bind({});
+
 EMail.args = {
   variant: 'email',
-  id: 'default',
-  name: 'default',
+  id: 'email',
+  name: 'email',
   required: false,
   indicateLoading: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: 'example@domain.tld',
+};
+
+EMail.parameters = {
+  formik: {
+    initialValues: {
+      email: '',
+    },
+  },
 };
 
 export const Telephone = Template.bind({});
+
 Telephone.args = {
   variant: 'tel',
-  id: 'default',
-  name: 'default',
+  id: 'telephone',
+  name: 'telephone',
   required: false,
   indicateLoading: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: '0767777777',
+};
+
+Telephone.parameters = {
+  formik: {
+    initialValues: {
+      telephone: '',
+    },
+  },
 };
 
 export const URL = Template.bind({});
+
 URL.args = {
   variant: 'url',
-  id: 'default',
-  name: 'default',
+  id: 'url',
+  name: 'url',
   indicateLoading: false,
   required: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: 'https://example.com',
+};
+
+URL.parameters = {
+  formik: {
+    initialValues: {
+      url: '',
+    },
+  },
 };
 
 export const Search = Template.bind({});
+
 Search.args = {
   variant: 'search',
   id: 'default',
@@ -114,59 +157,86 @@ Search.args = {
   indicateLoading: false,
   required: false,
   disabled: false,
-  status: undefined,
-  placeholder,
-  value,
+  placeholder: 'nudist beach near basel',
 };
 
 export const ValidInput = Template.bind({});
 ValidInput.args = {
   variant: 'text',
-  id: 'default',
-  name: 'default',
+  id: 'validInput',
+  name: 'validInput',
   indicateLoading: false,
   required: false,
   disabled: false,
   status: 'valid',
   placeholder,
-  value,
+};
+
+ValidInput.parameters = {
+  formik: {
+    initialValues: {
+      validInput: '',
+    },
+  },
 };
 
 export const InvalidInput = Template.bind({});
+
 InvalidInput.args = {
   variant: 'text',
-  id: 'default',
-  name: 'default',
+  id: 'invalidInput',
+  name: 'invalidInput',
   indicateLoading: false,
   required: false,
   disabled: false,
   status: 'invalid',
   placeholder,
-  value,
+};
+
+InvalidInput.parameters = {
+  formik: {
+    initialValues: {
+      invalidInput: '',
+    },
+  },
 };
 
 export const Loading = Template.bind({});
+
 Loading.args = {
   variant: 'text',
-  id: 'default',
-  name: 'default',
+  id: 'loading',
+  name: 'loading',
   indicateLoading: true,
   required: false,
   disabled: false,
-  status: undefined,
   placeholder,
-  value,
+};
+
+Loading.parameters = {
+  formik: {
+    initialValues: {
+      loading: '',
+    },
+  },
 };
 
 export const Disabled = Template.bind({});
+
 Disabled.args = {
   variant: 'text',
-  id: 'default',
-  name: 'default',
+  id: 'disabled',
+  name: 'disabled',
   indicateLoading: false,
   required: false,
   disabled: true,
-  status: undefined,
   placeholder,
-  value,
+};
+
+Disabled.parameters = {
+  formik: {
+    initialValues: {
+      disabled: '',
+    },
+  },
 };

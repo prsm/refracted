@@ -1,10 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import React from 'react';
-import { Properties, Spinner } from './spinner';
+import { Spinner, SpinnerProperties } from './spinner';
 
 const meta: Meta = {
-  title: 'Feedback/Spinner',
+  title: 'Design System/Feedback/Spinner',
   component: Spinner,
   parameters: {
     componentSubtitle: 'Displays a static spinning SVG',
@@ -20,56 +20,56 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<Properties> = (arguments_) => <Spinner {...arguments_} />;
+const Template: Story<SpinnerProperties> = (arguments_) => <Spinner {...arguments_} />;
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
 export const Current = Template.bind({});
 Current.args = {
-  variant: 'current',
+  color: 'current',
 };
 
 export const Lila = Template.bind({});
 Lila.args = {
-  variant: 'lila',
+  color: 'lila',
 };
 
 export const Violett = Template.bind({});
 Violett.args = {
-  variant: 'violett',
+  color: 'violett',
 };
 
 export const Blue = Template.bind({});
 Blue.args = {
-  variant: 'blue',
+  color: 'blue',
 };
 
 export const Green = Template.bind({});
 Green.args = {
-  variant: 'green',
+  color: 'green',
 };
 
 export const Yellow = Template.bind({});
 Yellow.args = {
-  variant: 'yellow',
+  color: 'yellow',
 };
 
 export const Orange = Template.bind({});
 Orange.args = {
-  variant: 'orange',
+  color: 'orange',
 };
 
 export const Red = Template.bind({});
 Red.args = {
-  variant: 'red',
+  color: 'red',
 };
 
 export const White = Template.bind({});
 White.args = {
-  variant: 'white',
+  color: 'white',
 };
 
 export const Black = Template.bind({});
 Black.args = {
-  variant: 'black',
+  color: 'black',
 };
