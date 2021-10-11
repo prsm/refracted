@@ -7,7 +7,7 @@ describe('Typography', () => {
   it('should render the component without crashing', () => {
     const text = 'Inside test case';
 
-    const { getByText } = render(<H1 text={text} variant="h1" />);
+    const { getByText } = render(<H1 text={text} component="h1" variant="h1" />);
     expect(getByText(text)).toBeInTheDocument();
     expect(getByText(text)).toHaveTextContent(text);
   });

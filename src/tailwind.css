@@ -90,7 +90,7 @@
 }
 
 .textfield {
-  @apply flex relative flex-wrap items-stretch p-1 mb-2 w-full text-gray-500 focus-within:text-brand-black dark:focus-within:text-brand-white duration-200 transform;
+  @apply flex relative flex-wrap items-stretch mb-2 w-full text-gray-500 focus-within:text-brand-black dark:focus-within:text-brand-white duration-200 transform;
 }
 
 .textfield-input {

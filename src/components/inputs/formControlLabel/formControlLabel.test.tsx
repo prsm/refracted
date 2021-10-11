@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import * as React from 'react';
-import { Default } from './inputLabel.stories';
+import { Default } from './formControlLabel.stories';
 
 describe('InputLabel', () => {
   const text = 'this is a label';
