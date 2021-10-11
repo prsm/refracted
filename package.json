@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "version": "0.0.1-8",
-  "name": "refracted",
+  "name": "@pr1sm/refracted",
   "description": "The React UI library for PR1SM",
   "keywords": [
     "react",
@@ -108,6 +108,10 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=14.0.0 <15.0.0",
+    "yarn": "^1.22.0"
+  },
   "module": "./dist/refracted.es.js",
   "exports": {
     ".": {
