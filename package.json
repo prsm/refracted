@@ -103,10 +103,11 @@
     "vite-plugin-dts": "^0.8.1",
     "yup": "^0.32.9"
   },
-  "main": "./dist/refracted.umd.js",
+  "main": "./dist/refracted.es.js",
   "typings": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "dist/*.css"
   ],
   "engines": {
     "node": ">=14.0.0 <15.0.0",
