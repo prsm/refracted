@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Formik } from 'formik';
 import React from 'react';
-import { TextFieldProperties } from './textfield';
+import { TextFieldProperties } from './textField';
 import { Text } from './textField.stories';
 
 describe('TextField', () => {

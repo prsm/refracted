@@ -22,16 +22,16 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview",
+    "build": "tsc --noEmit && vite build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook:build": "build-storybook",
     "test": "jest -env=jsdom --passWithNoTests",
     "test:watch": "jest -env=jsdom --watch --passWithNoTests",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet",
     "format": "prettier --write '*/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "size:why": "size-limit --why",
+    "ltb": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.4",
@@ -88,7 +88,6 @@
     "jest": "^27.2.4",
     "jest-circus": "^27.2.4",
     "jest-watch-typeahead": "^1.0.0",
-    "lint-staged": "^11.1.2",
     "postcss": "^8.3.6",
     "prettier": "^2.4.1",
     "size-limit": "^5.0.5",
@@ -103,11 +102,11 @@
     "vite-plugin-dts": "^0.8.1",
     "yup": "^0.32.9"
   },
-  "main": "./dist/refracted.es.js",
+  "main": "./dist/refracted.umd.js",
   "typings": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "dist/*.css"
+    "dist/style.css",
+    "package.json"
   ],
   "engines": {
     "node": ">=14.0.0 <15.0.0",
@@ -118,24 +117,16 @@
     ".": {
       "import": "./dist/refracted.es.js",
       "require": "./dist/refracted.umd.js"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix -f git-log",
-      "prettier --write",
-      "git add"
-    ],
-    "*.{ts,tsx}/": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{ts,css,md}": "prettier --write"
   },
   "size-limit": [
     {

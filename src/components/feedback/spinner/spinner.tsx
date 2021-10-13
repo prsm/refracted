@@ -1,5 +1,4 @@
 // import 'inter-ui/inter.css';
-import PropTypes from 'prop-types';
 import React, { FC, HTMLAttributes } from 'react';
 import '../../../tailwind.css';
 import getUIColor, { UIColor } from '../../../utils/getUiColor';
@@ -27,22 +26,4 @@ export const Spinner: FC<SpinnerProperties> = (properties) => {
       </svg>
     </div>
   );
-};
-
-Spinner.propTypes = {
-  /**
-   * Selected variant of the Spinner
-   */
-  color: PropTypes.oneOf<UIColor>([
-    'current',
-    'lila',
-    'violett',
-    'blue',
-    'green',
-    'yellow',
-    'orange',
-    'red',
-    'white',
-    'black',
-  ]).isRequired,
 };
