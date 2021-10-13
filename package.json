@@ -106,7 +106,7 @@
   "typings": "./dist/index.d.ts",
   "files": [
     "dist/style.css",
-    "package.json"
+    "dist"
   ],
   "engines": {
     "node": ">=14.0.0 <15.0.0",
