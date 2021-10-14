@@ -89,7 +89,9 @@
 
 .em,
 .strong,
-.body {
+.body,
+.pretitle,
+.subtitle {
   @apply my-2;
 }
 
