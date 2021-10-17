@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import React from 'react';
 import withFormik from 'storybook-formik';
-import { TextField, TextFieldProperties } from './textfield';
+import { TextField, TextFieldProperties } from './textField';
 
 const meta: Meta = {
   title: 'Design System/Inputs/Text Field',

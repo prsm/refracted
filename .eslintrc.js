@@ -17,12 +17,6 @@ module.exports = {
     ],
     'no-console': 'error',
     'react/react-in-jsx-scope': 'off',
-    'react/prop-types': [
-      1,
-      {
-        ignore: ['className', 'children'],
-      },
-    ],
     'simple-import-sort/exports': 'error',
     'import/first': 'error',
     'import/newline-after-import': 'error',
@@ -36,6 +30,7 @@ module.exports = {
         },
       },
     ],
+    'react/prop-types': 0,
   },
   extends: [
     'next/core-web-vitals',

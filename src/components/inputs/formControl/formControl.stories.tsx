@@ -5,7 +5,7 @@ import withFormik from 'storybook-formik';
 import * as yup from 'yup';
 import { FormControlLabel, FormControlLabelProperties } from '../formControlLabel/formControlLabel';
 import { Default as DefaultLabel } from '../formControlLabel/formControlLabel.stories';
-import { TextField, TextFieldProperties } from '../textField/textfield';
+import { TextField, TextFieldProperties } from '../textField/textField';
 import { EMail, Text } from '../textField/textField.stories';
 import { FormControl, FormControlProperties } from './formControl';
 

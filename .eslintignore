@@ -6,3 +6,4 @@ postcss.config.js
 tailwind.config.js
 jest.config.js
 .babel.config.js
+vite.config.ts

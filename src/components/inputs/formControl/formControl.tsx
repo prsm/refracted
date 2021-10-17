@@ -5,7 +5,7 @@ import React, { FC, HTMLAttributes, ReactElement } from 'react';
 import '../../../tailwind.css';
 import Typography from '../../data/typography';
 import { FormControlLabelProperties } from '../formControlLabel/formControlLabel';
-import { TextFieldProperties } from '../textField/textfield';
+import { TextFieldProperties } from '../textField/textField';
 
 export interface FormControlProperties extends HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -25,7 +25,7 @@ export const FormControl: FC<FormControlProperties> = ({ children, name }) => {
       <AnimatePresence>
         {meta.touched && meta.error ? (
           <motion.div
-            className="rounded border border-gray-500 mb-2 px-2 py-1"
+            className="py-1 px-2 mb-2 rounded border border-gray-500"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             key="errorMessage"

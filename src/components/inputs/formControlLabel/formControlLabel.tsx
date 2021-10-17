@@ -1,5 +1,4 @@
 // import 'inter-ui/inter.css';
-import PropTypes from 'prop-types';
 import React, { FC, HTMLAttributes } from 'react';
 import '../../../tailwind.css';
 import Typography from '../../data/typography';
@@ -29,10 +28,4 @@ export const FormControlLabel: FC<FormControlLabelProperties> = (properties) => 
       )}
     </label>
   );
-};
-
-FormControlLabel.propTypes = {
-  htmlFor: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  required: PropTypes.bool,
 };

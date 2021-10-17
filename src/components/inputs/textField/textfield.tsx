@@ -1,4 +1,3 @@
-// import 'inter-ui/inter.css';
 import {
   AtSymbolIcon,
   BanIcon,
