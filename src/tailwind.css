@@ -105,7 +105,7 @@
 }
 
 .textfield-icon {
-  @apply absolute z-10 justify-center items-center py-2 w-4 h-4 text-base font-normal leading-snug text-center bg-transparent rounded;
+  @apply absolute z-10 justify-center items-center py-4 w-4 h-4 text-base font-normal leading-snug text-center bg-transparent rounded;
 }
 
 .textfield {

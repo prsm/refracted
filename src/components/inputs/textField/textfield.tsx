@@ -27,6 +27,7 @@ export interface TextFieldProperties extends HTMLAttributes<HTMLInputElement> {
   required?: boolean;
   disabled?: boolean;
   placeholder?: string;
+  onChange?: React.ChangeEvent<HTMLInputElement>;
 }
 
 /**
@@ -34,7 +35,7 @@ export interface TextFieldProperties extends HTMLAttributes<HTMLInputElement> {
   - Display field state like disabled, valid, invalid and loading
  **/
 export const TextField: FC<TextFieldProperties> = (properties) => {
-  const { variant, id, name, status, indicateLoading, required, disabled, placeholder } = properties;
+  const { variant, id, name, status, indicateLoading, required, disabled, placeholder, onChange } = properties;
   const [field, meta] = useField(name);
 
   const textColorFromStatus = (): string | void => {
@@ -102,6 +103,7 @@ export const TextField: FC<TextFieldProperties> = (properties) => {
         id={id}
         disabled={disabled}
         type={variant}
+        onChange={onChange}
         {...field}
       />
       {statusIcon && (
