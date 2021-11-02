@@ -14,6 +14,7 @@ const meta: Meta = {
       </div>
     ),
   ],
+  parameters: { actions: { argTypesRegex: '^on.*' } },
 };
 
 export default meta;
@@ -25,34 +26,50 @@ const text = 'Click me!';
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
 export const Default = Template.bind({});
-Default.args = { text };
+Default.args = {
+  text,
+  color: 'dark-theme',
+  icon: undefined,
+  endIcon: undefined,
+  disabled: false,
+  href: '',
+  hrefType: 'internal',
+  size: 'medium',
+  variant: 'contained',
+  fullWidth: false,
+  loading: false,
+  blurred: false,
+};
 
 export const StartIcon = Template.bind({});
-StartIcon.args = { text, startIcon: <InformationCircleIcon /> };
+StartIcon.args = { ...Default.args, icon: <InformationCircleIcon /> };
 
 export const EndIcon = Template.bind({});
-StartIcon.args = { text, endIcon: <ArrowSmRightIcon /> };
+EndIcon.args = { ...Default.args, endIcon: <ArrowSmRightIcon /> };
 
 export const Disabled = Template.bind({});
-Disabled.args = { text, endIcon: <ArrowSmRightIcon />, disabled: true };
+Disabled.args = { ...Default.args, endIcon: <ArrowSmRightIcon />, disabled: true };
 
 export const InternalLink = Template.bind({});
-InternalLink.args = { text, href: 'https://www.pr1sm.gg', hrefType: 'internal' };
+InternalLink.args = { ...Default.args, href: 'https://www.pr1sm.gg', hrefType: 'internal' };
 
 export const ExternalLink = Template.bind({});
-ExternalLink.args = { text, href: 'https://www.pr1sm.gg', hrefType: 'external' };
+ExternalLink.args = { ...Default.args, href: 'https://www.pr1sm.gg', hrefType: 'external' };
+
+export const Loading = Template.bind({});
+Loading.args = { ...Default.args, loading: true };
 
 export const Small = Template.bind({});
-Small.args = { text, size: 'small' };
+Small.args = { ...Default.args, size: 'small' };
 
 export const Large = Template.bind({});
-Large.args = { text, size: 'large' };
+Large.args = { ...Default.args, size: 'large' };
 
 export const Text = Template.bind({});
-Large.args = { text, variant: 'text' };
+Large.args = { ...Default.args, variant: '...Default.args' };
 
 export const Outlined = Template.bind({});
-Outlined.args = { text, variant: 'outlined' };
+Outlined.args = { ...Default.args, variant: 'outlined' };
 
 export const FullWidth = Template.bind({});
-FullWidth.args = { text, fullWidth: true };
+FullWidth.args = { ...Default.args, fullWidth: true };

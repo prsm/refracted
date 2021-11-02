@@ -122,3 +122,12 @@ input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   -webkit-appearance: none;
 }
+
+.border-custom {
+  @apply border-brand-black dark:border-brand-white transition duration-200;
+  @apply border-opacity-50 hover:border-opacity-100 !important;
+}
+
+.border-disabled {
+  @apply opacity-50 hover:border-opacity-50 !important;
+}

@@ -4,8 +4,8 @@ const getUIColor = (color: UIColor): string => {
       return 'fill-current';
     case 'lila':
       return 'text-ui-lila';
-    case 'violett':
-      return 'text-ui-violett';
+    case 'violet':
+      return 'text-ui-violet';
     case 'blue':
       return 'text-ui-blue';
     case 'green':
@@ -17,25 +17,27 @@ const getUIColor = (color: UIColor): string => {
     case 'red':
       return 'text-ui-red';
     case 'white':
-      return 'text-brand-white dark:text-brand-white';
+      return 'text-brand-white';
     case 'black':
+      return 'text-brand-black';
+    case 'dark-theme':
       return 'text-brand-black dark:text-brand-white';
-
     default:
-      return 'fill-current';
+      return 'text-brand-black dark:text-brand-white';
   }
 };
 
 export type UIColor =
   | 'current'
   | 'lila'
-  | 'violett'
+  | 'violet'
   | 'blue'
   | 'green'
   | 'yellow'
   | 'orange'
   | 'red'
   | 'white'
-  | 'black';
+  | 'black'
+  | 'dark-theme';
 
 export default getUIColor;

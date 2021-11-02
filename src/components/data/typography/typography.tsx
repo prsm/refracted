@@ -46,7 +46,7 @@ export interface TypographyProperties {
   - Use typography to visualize text
 **/
 export const Typography: FC<TypographyProperties> = (properties) => {
-  const { variant = 'h1', component = 'span', color = 'black', text, className, children } = properties;
+  const { variant = 'h1', component = 'span', color = 'dark-theme', text, className, children } = properties;
   const TextWrapper = component;
 
   return (

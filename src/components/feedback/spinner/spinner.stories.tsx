@@ -24,6 +24,11 @@ const Template: Story<SpinnerProperties> = (arguments_) => <Spinner {...argument
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
+export const DarkTheme = Template.bind({});
+DarkTheme.args = {
+  color: 'dark-theme',
+};
+
 export const Current = Template.bind({});
 Current.args = {
   color: 'current',
@@ -34,9 +39,9 @@ Lila.args = {
   color: 'lila',
 };
 
-export const Violett = Template.bind({});
-Violett.args = {
-  color: 'violett',
+export const Violet = Template.bind({});
+Violet.args = {
+  color: 'violet',
 };
 
 export const Blue = Template.bind({});

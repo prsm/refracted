@@ -11,7 +11,7 @@ module.exports = {
       colors: {
         gray: colors.trueGray,
         'ui-lila': '#B375FF',
-        'ui-violett': '#7875FF',
+        'ui-violet': '#7875FF',
         'ui-blue': '#75D8FF',
         'ui-green': '#64ff64',
         'ui-yellow': '#EBFF6B',

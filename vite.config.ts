@@ -22,6 +22,7 @@ export default defineConfig({
       fileName: (format) => `refracted.${format}.js`,
     },
     rollupOptions: {
+      treeshake: true,
       // make sure to externalize deps that shouldn't be bundled
       // into your library
       external: ['react', 'react-dom', 'framer-motion', '@heroicons/react', 'formik'],

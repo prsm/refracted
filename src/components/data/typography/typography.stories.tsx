@@ -27,43 +27,43 @@ const text = 'There’s no place like home';
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
 export const H1 = Template.bind({});
-H1.args = { variant: 'h1', component: 'h1', color: 'black', text };
+H1.args = { variant: 'h1', component: 'h1', color: 'dark-theme', text };
 
 export const H2 = Template.bind({});
-H2.args = { variant: 'h2', component: 'h2', color: 'black', text };
+H2.args = { ...H1.args, variant: 'h2', component: 'h2' };
 
 export const H3 = Template.bind({});
-H3.args = { variant: 'h3', component: 'h3', color: 'black', text };
+H3.args = { ...H1.args, variant: 'h3', component: 'h3' };
 
 export const H4 = Template.bind({});
-H4.args = { variant: 'h4', component: 'h4', color: 'black', text };
+H4.args = { ...H1.args, variant: 'h4', component: 'h4' };
 
 export const H5 = Template.bind({});
-H5.args = { variant: 'h5', component: 'h5', color: 'black', text };
+H5.args = { ...H1.args, variant: 'h5', component: 'h5' };
 
 export const H6 = Template.bind({});
-H6.args = { variant: 'h6', component: 'h6', color: 'black', text };
+H6.args = { ...H1.args, variant: 'h6', component: 'h6' };
 
 export const Pretitle = Template.bind({});
-Pretitle.args = { variant: 'pretitle', component: 'span', color: 'black', text };
+Pretitle.args = { ...H1.args, variant: 'pretitle', component: 'span' };
 
 export const Subtitle = Template.bind({});
-Subtitle.args = { variant: 'subtitle', component: 'span', color: 'black', text };
+Subtitle.args = { ...H1.args, variant: 'subtitle', component: 'span' };
 
 export const Strong = Template.bind({});
-Strong.args = { variant: 'strong', component: 'strong', color: 'black', text };
+Strong.args = { ...H1.args, variant: 'strong', component: 'strong' };
 
 export const Em = Template.bind({});
-Em.args = { variant: 'em', component: 'em', color: 'black', text };
+Em.args = { ...H1.args, variant: 'em', component: 'em' };
 
 export const Body = Template.bind({});
-Body.args = { variant: 'body', component: 'p', color: 'black', text };
+Body.args = { ...H1.args, variant: 'body', component: 'p' };
 
 export const Button = Template.bind({});
-Button.args = { variant: 'button', component: 'span', color: 'black', text };
+Button.args = { ...H1.args, variant: 'button', component: 'span' };
 
 export const SemanticElement = Template.bind({});
-SemanticElement.args = { variant: 'body', component: 'p', color: 'black', text };
+SemanticElement.args = { ...H1.args, variant: 'body', component: 'p' };
 
 export const ColoredText = Template.bind({});
-ColoredText.args = { variant: 'body', component: 'p', color: 'green', text };
+ColoredText.args = { ...H1.args, variant: 'body', component: 'p', color: 'green' };

@@ -31,7 +31,7 @@ export const FormControl: FC<FormControlProperties> = ({ children, name }) => {
             key="errorMessage"
             tabIndex={-1}
             exit={{ opacity: 0 }}>
-            <Typography variant="pretitle" component="span" color="black" text={meta.error} />
+            <Typography variant="pretitle" component="span" text={meta.error} />
           </motion.div>
         ) : undefined}
       </AnimatePresence>

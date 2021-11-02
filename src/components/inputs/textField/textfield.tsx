@@ -11,14 +11,14 @@ import {
   XIcon,
 } from '@heroicons/react/solid';
 import { useField } from 'formik';
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC } from 'react';
 import '../../../tailwind.css';
 import Spinner from '../../feedback/spinner';
 
 type InputVariant = 'text' | 'password' | 'number' | 'email' | 'tel' | 'url' | 'search';
 type InputStatus = 'valid' | 'invalid' | undefined;
 
-export interface TextFieldProperties extends HTMLAttributes<HTMLInputElement> {
+export interface TextFieldProperties extends React.ComponentProps<'input'> {
   variant: InputVariant;
   id: string;
   name: string;
@@ -27,7 +27,7 @@ export interface TextFieldProperties extends HTMLAttributes<HTMLInputElement> {
   required?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  onChange?: React.ChangeEvent<HTMLInputElement>;
+  onChange?: React.FormEventHandler<HTMLInputElement>;
 }
 
 /**

@@ -10,6 +10,7 @@ import { Text } from './textField.stories';
 describe('TextField', () => {
   const text = 'Inside test case';
   const defaultArguments: TextFieldProperties = Text.args as TextFieldProperties;
+
   it('should render the component without crashing', async () => {
     const { getByDisplayValue } = render(
       <Formik {...Text.parameters?.formik}>

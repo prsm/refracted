@@ -1,3 +1,7 @@
 {
-  "jest.jestCommandLine": "yarn run jest -env=jsdom --passWithNoTests"
+  "jest.jestCommandLine": "yarn run jest -env=jsdom --passWithNoTests",
+  "css.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }
